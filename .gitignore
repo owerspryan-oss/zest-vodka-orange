@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+temporary screenshots/
+.claude/
+.agents/
+skills-lock.json
+shift5.io_.png
+*.log
+.env

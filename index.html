@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A0A1A" />
+  <title>ZEST — Still Bold. Never Fizzy.</title>
+  <meta name="description" content="ZEST is a premium still vodka orange in a can. No bubbles. No compromise. Just smooth, bold flavor." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,700;1,400;1,500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'zest-orange': '#FF6A00',
+            'zest-orange-light': '#FF9A40',
+            'zest-orange-glow': '#FFB347',
+            'zest-amber': '#E8590C',
+            'zest-navy': '#0A0A1A',
+            'zest-navy-mid': '#141428',
+            'zest-navy-light': '#1E1E3A',
+            'zest-cream': '#FFF5E6',
+          },
+          fontFamily: {
+            'display': ['Syne', 'sans-serif'],
+            'body': ['DM Sans', 'sans-serif'],
+            'accent': ['Playfair Display', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --orange: #FF6A00;
+      --orange-light: #FF9A40;
+      --orange-glow: #FFB347;
+      --amber: #E8590C;
+      --navy: #0A0A1A;
+      --navy-mid: #141428;
+      --navy-light: #1E1E3A;
+      --cream: #FFF5E6;
+      --white: #FAFAFA;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      filter: url(#grain);
+      z-index: 1;
+    }
+
+    /* Scroll fade-up */
+    .fu {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .fu.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays */
+    .fu-d1 { transition-delay: 0.1s; }
+    .fu-d2 { transition-delay: 0.2s; }
+    .fu-d3 { transition-delay: 0.3s; }
+    .fu-d4 { transition-delay: 0.4s; }
+    .fu-d5 { transition-delay: 0.5s; }
+
+    /* Hero word reveal */
+    .hero-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: wordReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes wordReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scroll indicator bounce */
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(10px); opacity: 1; }
+    }
+
+    /* Can float */
+    @keyframes canFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* Glow pulse */
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.15; }
+      50% { opacity: 0.3; }
+    }
+
+    /* Button styles */
+    .btn-zest {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      background: var(--orange);
+      color: var(--navy);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background 0.2s ease,
+                  box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-zest:hover {
+      transform: scale(1.03);
+      background: var(--orange-light);
+      box-shadow: 0 8px 30px rgba(255, 106, 0, 0.35);
+    }
+    .btn-zest:focus-visible {
+      outline: 3px solid var(--orange-glow);
+      outline-offset: 3px;
+    }
+    .btn-zest:active {
+      transform: scale(0.97);
+      background: var(--amber);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      background: transparent;
+      color: var(--orange);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      border: 2px solid var(--orange);
+      border-radius: 100px;
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background 0.2s ease,
+                  color 0.2s ease,
+                  box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      transform: scale(1.03);
+      background: var(--orange);
+      color: var(--navy);
+      box-shadow: 0 8px 30px rgba(255, 106, 0, 0.25);
+    }
+    .btn-outline:focus-visible {
+      outline: 3px solid var(--orange-glow);
+      outline-offset: 3px;
+    }
+    .btn-outline:active {
+      transform: scale(0.97);
+    }
+
+    /* Card elevation */
+    .card-elevated {
+      background: var(--navy-mid);
+      border: 1px solid rgba(255, 106, 0, 0.08);
+      border-radius: 20px;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.35s ease;
+    }
+    .card-elevated:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(255, 106, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Nav link underline */
+    .nav-link {
+      position: relative;
+      color: var(--cream);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--orange);
+      transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .nav-link:hover { color: var(--orange); }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Flavor badge */
+    .flavor-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255, 106, 0, 0.08);
+      border: 1px solid rgba(255, 106, 0, 0.15);
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      color: var(--orange-glow);
+      font-size: 0.95rem;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  background 0.3s ease;
+    }
+    .flavor-badge:hover {
+      transform: scale(1.05);
+      background: rgba(255, 106, 0, 0.15);
+    }
+
+    /* Section divider */
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--orange-glow));
+      border-radius: 2px;
+    }
+
+    /* Image overlay treatment */
+    .img-treated {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+    .img-treated::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 10, 26, 0.7), transparent 60%);
+      mix-blend-mode: multiply;
+    }
+    .img-treated img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .img-treated:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Can illustration (CSS art) */
+    .can-wrapper {
+      position: relative;
+      width: 180px;
+      height: 340px;
+      margin: 0 auto;
+      animation: canFloat 4s ease-in-out infinite;
+    }
+    @media (min-width: 768px) {
+      .can-wrapper { width: 220px; height: 420px; }
+    }
+
+    .can-body {
+      position: absolute;
+      inset: 0;
+      border-radius: 20px / 30px;
+      background: linear-gradient(160deg, #FF8C33 0%, #FF6A00 35%, #E85A00 65%, #CC4E00 100%);
+      box-shadow:
+        inset -15px 0 30px rgba(0,0,0,0.25),
+        inset 15px 0 30px rgba(255,255,255,0.08),
+        0 20px 60px rgba(255, 106, 0, 0.25),
+        0 0 120px rgba(255, 106, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .can-body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.15), transparent);
+      border-radius: 20px 20px 0 0 / 30px 30px 0 0;
+    }
+
+    .can-body::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.2), transparent);
+      border-radius: 0 0 20px 20px / 0 0 30px 30px;
+    }
+
+    .can-highlight {
+      position: absolute;
+      top: 20%;
+      left: 12%;
+      width: 4px;
+      height: 50%;
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,0.2), transparent);
+      border-radius: 4px;
+    }
+
+    .can-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+    }
+
+    .can-label .brand {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2.2rem;
+      color: white;
+      letter-spacing: 0.08em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      line-height: 1;
+    }
+    @media (min-width: 768px) {
+      .can-label .brand { font-size: 2.8rem; }
+    }
+
+    .can-label .sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    .can-tab {
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 16px;
+      background: linear-gradient(180deg, #d4d4d4, #a0a0a0);
+      border-radius: 4px 4px 8px 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      z-index: 3;
+    }
+    .can-tab::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 8px;
+      border: 2px solid rgba(0,0,0,0.2);
+      border-radius: 10px;
+    }
+
+    /* Glow behind can */
+    .can-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,106,0,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: glowPulse 3s ease-in-out infinite;
+      z-index: -1;
+    }
+    @media (min-width: 768px) {
+      .can-glow { width: 450px; height: 450px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG Grain Filter -->
+  <svg style="position:absolute;width:0;height:0;pointer-events:none">
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+  </svg>
+
+  <!-- ==================== NAV ==================== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="mainNav">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="#" class="font-display font-extrabold text-2xl tracking-wider text-zest-cream hover:text-zest-orange transition-colors duration-200">
+        ZEST
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#why" class="nav-link font-body text-sm">Why Still?</a>
+        <a href="#product" class="nav-link font-body text-sm">The Drink</a>
+        <a href="#taste" class="nav-link font-body text-sm">Taste</a>
+        <a href="#find" class="btn-zest text-sm">Buy Now</a>
+      </div>
+      <!-- Mobile menu button -->
+      <button class="md:hidden flex flex-col gap-1.5 p-2 group" id="menuBtn" aria-label="Menu">
+        <span class="w-6 h-0.5 bg-zest-cream transition-transform duration-300 origin-center group-[.open]:rotate-45 group-[.open]:translate-y-2"></span>
+        <span class="w-6 h-0.5 bg-zest-cream transition-opacity duration-200 group-[.open]:opacity-0"></span>
+        <span class="w-6 h-0.5 bg-zest-cream transition-transform duration-300 origin-center group-[.open]:-rotate-45 group-[.open]:-translate-y-2"></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden px-6 pb-6 flex-col gap-4" id="mobileMenu">
+      <a href="#why" class="nav-link font-body text-lg py-2">Why Still?</a>
+      <a href="#product" class="nav-link font-body text-lg py-2">The Drink</a>
+      <a href="#taste" class="nav-link font-body text-lg py-2">Taste</a>
+      <a href="#find" class="btn-zest text-center mt-2">Buy Now</a>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden grain" id="hero">
+    <!-- Background gradients -->
+    <div class="absolute inset-0" style="background:
+      radial-gradient(ellipse at 30% 20%, rgba(255,106,0,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 75% 75%, rgba(255,154,64,0.06) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 50%, rgba(232,89,12,0.04) 0%, transparent 60%),
+      linear-gradient(180deg, #0A0A1A 0%, #0e0e24 50%, #0A0A1A 100%)">
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      <!-- Text side -->
+      <div class="text-center lg:text-left order-2 lg:order-1">
+        <p class="font-accent italic text-zest-orange-glow text-lg md:text-xl mb-4 hero-word" style="animation-delay: 0s">
+          Introducing
+        </p>
+        <h1 class="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-tight text-white mb-6">
+          <span class="hero-word" style="animation-delay: 0.15s">Still</span>
+          <span class="hero-word" style="animation-delay: 0.3s">Bold.</span>
+          <br />
+          <span class="hero-word text-zest-orange" style="animation-delay: 0.45s">Never</span>
+          <span class="hero-word text-zest-orange" style="animation-delay: 0.6s">Fizzy.</span>
+        </h1>
+        <p class="font-body text-zest-cream/70 text-lg md:text-xl max-w-lg mx-auto lg:mx-0 mb-10 hero-word" style="animation-delay: 0.75s">
+          Premium vodka orange in a can. No bubbles. No bloat. No compromise. Just smooth, bold flavour the way it was meant to be.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center lg:justify-start hero-word" style="animation-delay: 0.9s">
+          <a href="#find" class="btn-zest">
+            Buy Now
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#why" class="btn-outline">
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      <!-- Can side -->
+      <div class="relative flex justify-center order-1 lg:order-2" id="canContainer">
+        <div class="can-glow"></div>
+        <div class="can-wrapper">
+          <div class="can-tab"></div>
+          <div class="can-body">
+            <div class="can-highlight"></div>
+            <div class="can-label">
+              <div class="brand">ZEST</div>
+              <div class="sub">Vodka &amp; Orange</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style="animation: scrollBounce 2.5s ease-in-out infinite">
+      <span class="font-body text-xs text-zest-cream/40 tracking-widest uppercase">Scroll</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-zest-cream/40"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+  </section>
+
+  <!-- ==================== WHY STILL ==================== -->
+  <section class="relative py-24 md:py-36 grain" id="why">
+    <div class="absolute inset-0" style="background: linear-gradient(180deg, #0A0A1A, #0e0e24, #0A0A1A)"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <!-- Text -->
+        <div>
+          <div class="section-divider mb-6 fu"></div>
+          <h2 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-tight mb-6 fu fu-d1">
+            Why <span class="text-zest-orange">Still</span>?
+          </h2>
+          <p class="font-accent italic text-zest-orange-glow text-lg mb-8 fu fu-d2">
+            Because the best cocktails were never fizzy.
+          </p>
+          <div class="space-y-6 fu fu-d3">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-zest-orange/10 flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-5"/></svg>
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-lg text-white mb-1">Smoother Drinking</h3>
+                <p class="font-body text-zest-cream/60 leading-relaxed">No carbonation means no harsh bite, no burning fizz. Just a clean, smooth sip from start to finish.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-zest-orange/10 flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-5"/></svg>
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-lg text-white mb-1">Zero Bloat</h3>
+                <p class="font-body text-zest-cream/60 leading-relaxed">Carbonation fills you up. ZEST doesn't. Drink it comfortably — one can or three.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-zest-orange/10 flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-5"/></svg>
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-lg text-white mb-1">Pure Flavour</h3>
+                <p class="font-body text-zest-cream/60 leading-relaxed">Without bubbles masking the taste, you get the full depth of real orange and premium vodka in every sip.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual: Still vs Fizzy comparison -->
+        <div class="fu fu-d2">
+          <div class="grid grid-cols-2 gap-6">
+            <!-- Still glass -->
+            <div class="relative rounded-2xl overflow-hidden bg-gradient-to-b from-zest-navy-light to-zest-navy-mid p-6 text-center border border-zest-orange/10">
+              <div class="w-20 h-32 mx-auto mb-4 rounded-b-lg bg-gradient-to-b from-orange-400/80 to-orange-600/90 relative overflow-hidden" style="border-radius: 4px 4px 8px 8px;">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+              </div>
+              <p class="font-display font-bold text-white text-lg">Still</p>
+              <p class="font-body text-zest-cream/50 text-sm mt-1">Smooth &amp; clean</p>
+              <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-zest-orange/20 flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="3"><path d="m5 12 5 5L20 7"/></svg>
+              </div>
+            </div>
+            <!-- Fizzy glass -->
+            <div class="relative rounded-2xl overflow-hidden bg-gradient-to-b from-zest-navy-light to-zest-navy-mid p-6 text-center border border-white/5 opacity-50">
+              <div class="w-20 h-32 mx-auto mb-4 rounded-b-lg bg-gradient-to-b from-orange-400/40 to-orange-600/50 relative overflow-hidden" style="border-radius: 4px 4px 8px 8px;">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                <!-- Bubble dots -->
+                <div class="absolute bottom-2 left-3 w-1.5 h-1.5 rounded-full bg-white/30"></div>
+                <div class="absolute bottom-6 right-4 w-1 h-1 rounded-full bg-white/25"></div>
+                <div class="absolute bottom-4 left-6 w-2 h-2 rounded-full bg-white/20"></div>
+                <div class="absolute bottom-8 right-3 w-1 h-1 rounded-full bg-white/30"></div>
+                <div class="absolute bottom-10 left-4 w-1.5 h-1.5 rounded-full bg-white/20"></div>
+                <div class="absolute bottom-3 right-6 w-1 h-1 rounded-full bg-white/25"></div>
+              </div>
+              <p class="font-display font-bold text-white/60 text-lg">Fizzy</p>
+              <p class="font-body text-zest-cream/30 text-sm mt-1">Bloat &amp; burn</p>
+              <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="3"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCT DETAILS ==================== -->
+  <section class="relative py-24 md:py-36 grain" id="product">
+    <div class="absolute inset-0" style="background:
+      radial-gradient(ellipse at 20% 50%, rgba(255,106,0,0.06) 0%, transparent 50%),
+      linear-gradient(180deg, #0e0e24, #0A0A1A, #0e0e24)">
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="section-divider mx-auto mb-6 fu"></div>
+        <h2 class="font-display font-extrabold text-4xl md:text-5xl text-white tracking-tight mb-4 fu fu-d1">
+          What's <span class="text-zest-orange">Inside</span>
+        </h2>
+        <p class="font-body text-zest-cream/60 text-lg max-w-xl mx-auto fu fu-d2">
+          Three simple things done right. Nothing else.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1: Real Orange -->
+        <div class="card-elevated p-8 md:p-10 fu fu-d1">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-zest-orange/20 to-zest-orange/5 flex items-center justify-center mb-6">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="1.5" stroke-linecap="round">
+              <circle cx="12" cy="13" r="8"/>
+              <path d="M12 5c0-2 1-3 3-3"/>
+              <path d="M9.5 5.5C10.5 4.5 11 4 12 5"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-3">Real Orange</h3>
+          <p class="font-body text-zest-cream/55 leading-relaxed">
+            Made with real orange juice — not artificial flavouring, not "orange-type" concentrate. The real thing, squeezed and blended.
+          </p>
+        </div>
+
+        <!-- Card 2: Premium Vodka -->
+        <div class="card-elevated p-8 md:p-10 fu fu-d2">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-zest-orange/20 to-zest-orange/5 flex items-center justify-center mb-6">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="1.5" stroke-linecap="round">
+              <path d="M8 2h8l-1 7h-6L8 2z"/>
+              <path d="M9 9h6v1a7 7 0 01-6 0V9z"/>
+              <rect x="8" y="18" width="8" height="4" rx="1"/>
+              <path d="M10 14v4"/>
+              <path d="M14 14v4"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-3">Premium Vodka</h3>
+          <p class="font-body text-zest-cream/55 leading-relaxed">
+            Triple-distilled for purity. No harsh edges, no aftertaste. A clean, smooth spirit that lets the orange shine through.
+          </p>
+        </div>
+
+        <!-- Card 3: No Carbonation -->
+        <div class="card-elevated p-8 md:p-10 fu fu-d3">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-zest-orange/20 to-zest-orange/5 flex items-center justify-center mb-6">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="1.5" stroke-linecap="round">
+              <path d="M12 2v6"/>
+              <path d="M8 4v4"/>
+              <path d="M16 3v5"/>
+              <circle cx="12" cy="14" r="8"/>
+              <path d="m9 14 2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-white mb-3">Zero Carbonation</h3>
+          <p class="font-body text-zest-cream/55 leading-relaxed">
+            Still and sessionable. No gas, no bloat, no burping. Just a smooth drink you can sip all night without feeling full.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LIFESTYLE ==================== -->
+  <section class="relative py-24 md:py-36 overflow-hidden grain">
+    <div class="absolute inset-0" style="background: linear-gradient(180deg, #0A0A1A, #12122a, #0A0A1A)"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="section-divider mx-auto mb-6 fu"></div>
+        <h2 class="font-display font-extrabold text-4xl md:text-5xl text-white tracking-tight mb-4 fu fu-d1">
+          From <span class="text-zest-orange">Rooftops</span> to Poolsides
+        </h2>
+        <p class="font-body text-zest-cream/60 text-lg max-w-xl mx-auto fu fu-d2">
+          ZEST goes where you go. No glass required.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 fu fu-d3">
+        <!-- Occasion 1 -->
+        <div class="img-treated aspect-[4/5]">
+          <img src="https://placehold.co/600x750/1a1a2e/FF6A00?text=Beach+Day" alt="Beach" loading="lazy" />
+          <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+            <p class="font-display font-bold text-white text-xl">Beach Day</p>
+            <p class="font-body text-white/60 text-sm">Sun, sand, smooth sips</p>
+          </div>
+        </div>
+        <!-- Occasion 2 -->
+        <div class="img-treated aspect-[4/5]">
+          <img src="https://placehold.co/600x750/1a1a2e/FF6A00?text=Dinner+Party" alt="Dinner Party" loading="lazy" />
+          <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+            <p class="font-display font-bold text-white text-xl">Dinner Party</p>
+            <p class="font-body text-white/60 text-sm">Sophisticated &amp; effortless</p>
+          </div>
+        </div>
+        <!-- Occasion 3 -->
+        <div class="img-treated aspect-[4/5]">
+          <img src="https://placehold.co/600x750/1a1a2e/FF6A00?text=Night+Out" alt="Night Out" loading="lazy" />
+          <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+            <p class="font-display font-bold text-white text-xl">Night Out</p>
+            <p class="font-body text-white/60 text-sm">Bold, not bloated</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FLAVOUR PROFILE ==================== -->
+  <section class="relative py-24 md:py-36 grain" id="taste">
+    <div class="absolute inset-0" style="background:
+      radial-gradient(ellipse at 70% 30%, rgba(255,106,0,0.08) 0%, transparent 50%),
+      linear-gradient(180deg, #0A0A1A, #0e0e24, #0A0A1A)">
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Visual -->
+        <div class="flex justify-center fu">
+          <div class="relative">
+            <div class="can-glow" style="width:350px;height:350px;"></div>
+            <div class="can-wrapper">
+              <div class="can-tab"></div>
+              <div class="can-body">
+                <div class="can-highlight"></div>
+                <div class="can-label">
+                  <div class="brand">ZEST</div>
+                  <div class="sub">Vodka &amp; Orange</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Taste notes -->
+        <div>
+          <div class="section-divider mb-6 fu"></div>
+          <h2 class="font-display font-extrabold text-4xl md:text-5xl text-white tracking-tight mb-4 fu fu-d1">
+            How It <span class="text-zest-orange">Tastes</span>
+          </h2>
+          <p class="font-body text-zest-cream/60 text-lg mb-10 fu fu-d2">
+            Every sip is a balance of bright citrus and clean spirit. No sweetness overload. No artificial tang.
+          </p>
+          <div class="flex flex-wrap gap-3 fu fu-d3">
+            <div class="flavor-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFB347" stroke="none"><circle cx="12" cy="12" r="5"/></svg>
+              Bright Citrus
+            </div>
+            <div class="flavor-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFB347" stroke="none"><circle cx="12" cy="12" r="5"/></svg>
+              Clean Finish
+            </div>
+            <div class="flavor-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFB347" stroke="none"><circle cx="12" cy="12" r="5"/></svg>
+              Smooth Body
+            </div>
+            <div class="flavor-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFB347" stroke="none"><circle cx="12" cy="12" r="5"/></svg>
+              Natural Sweetness
+            </div>
+            <div class="flavor-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFB347" stroke="none"><circle cx="12" cy="12" r="5"/></svg>
+              No Aftertaste
+            </div>
+          </div>
+
+          <!-- ABV / Size info -->
+          <div class="grid grid-cols-3 gap-4 mt-12 fu fu-d4">
+            <div class="text-center p-4 rounded-xl bg-zest-navy-light/50 border border-white/5">
+              <p class="font-display font-bold text-2xl text-zest-orange">5%</p>
+              <p class="font-body text-zest-cream/40 text-xs mt-1">ABV</p>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-zest-navy-light/50 border border-white/5">
+              <p class="font-display font-bold text-2xl text-zest-orange">330</p>
+              <p class="font-body text-zest-cream/40 text-xs mt-1">ML</p>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-zest-navy-light/50 border border-white/5">
+              <p class="font-display font-bold text-2xl text-zest-orange">0g</p>
+              <p class="font-body text-zest-cream/40 text-xs mt-1">Added Sugar</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section class="relative py-24 md:py-36 overflow-hidden" id="find">
+    <div class="absolute inset-0" style="background:
+      radial-gradient(ellipse at 50% 50%, rgba(255,106,0,0.15) 0%, transparent 60%),
+      linear-gradient(180deg, #0e0e24, #0A0A1A)">
+    </div>
+    <!-- Decorative rings -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-zest-orange/5"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-zest-orange/8"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+      <p class="font-accent italic text-zest-orange-glow text-lg mb-4 fu">Ready to try something different?</p>
+      <h2 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white tracking-tight mb-6 fu fu-d1">
+        Get Your <span class="text-zest-orange">ZEST</span>
+      </h2>
+      <p class="font-body text-zest-cream/60 text-lg mb-10 max-w-lg mx-auto fu fu-d2">
+        Available at selected retailers and online. The smoothest vodka orange you'll ever drink.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center fu fu-d3">
+        <a href="#" class="btn-zest text-lg px-8 py-4">
+          Buy Now
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#" class="btn-outline text-lg px-8 py-4">
+          Find Near You
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="relative py-16 border-t border-white/5">
+    <div class="absolute inset-0 bg-zest-navy"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <!-- Brand -->
+        <div>
+          <p class="font-display font-extrabold text-2xl text-white tracking-wider mb-3">ZEST</p>
+          <p class="font-body text-zest-cream/40 text-sm leading-relaxed">
+            Premium still vodka orange in a can. Bold flavour, zero fizz.
+          </p>
+        </div>
+        <!-- Links -->
+        <div>
+          <p class="font-display font-bold text-sm text-white/60 tracking-wider uppercase mb-4">Explore</p>
+          <div class="flex flex-col gap-3">
+            <a href="#why" class="nav-link font-body text-sm text-zest-cream/50">Why Still?</a>
+            <a href="#product" class="nav-link font-body text-sm text-zest-cream/50">The Drink</a>
+            <a href="#taste" class="nav-link font-body text-sm text-zest-cream/50">Taste</a>
+            <a href="#find" class="nav-link font-body text-sm text-zest-cream/50">Buy Now</a>
+          </div>
+        </div>
+        <!-- Social -->
+        <div>
+          <p class="font-display font-bold text-sm text-white/60 tracking-wider uppercase mb-4">Follow Us</p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-zest-orange/20 transition-colors duration-200" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF5E6" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="#FFF5E6" stroke="none"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-zest-orange/20 transition-colors duration-200" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF5E6" stroke-width="1.5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-zest-orange/20 transition-colors duration-200" aria-label="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF5E6" stroke-width="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="font-body text-xs text-zest-cream/30">
+          &copy; 2026 ZEST. All rights reserved. Drink responsibly. Must be of legal drinking age.
+        </p>
+        <div class="flex gap-6">
+          <a href="#" class="font-body text-xs text-zest-cream/30 hover:text-zest-cream/60 transition-colors duration-200">Privacy Policy</a>
+          <a href="#" class="font-body text-xs text-zest-cream/30 hover:text-zest-cream/60 transition-colors duration-200">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    // Scroll fade-up observer
+    const fuObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fuObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fu').forEach(el => fuObserver.observe(el));
+
+    // Nav background on scroll
+    const nav = document.getElementById('mainNav');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 60) {
+        nav.style.background = 'rgba(10, 10, 26, 0.92)';
+        nav.style.backdropFilter = 'blur(12px)';
+        nav.style.webkitBackdropFilter = 'blur(12px)';
+      } else {
+        nav.style.background = 'transparent';
+        nav.style.backdropFilter = 'none';
+        nav.style.webkitBackdropFilter = 'none';
+      }
+      lastScroll = scrollY;
+    }, { passive: true });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('open');
+      const isOpen = menuBtn.classList.contains('open');
+      mobileMenu.style.display = isOpen ? 'flex' : 'none';
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuBtn.classList.remove('open');
+        mobileMenu.style.display = 'none';
+      });
+    });
+
+    // Parallax on hero can
+    const canContainer = document.getElementById('canContainer');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const heroHeight = document.getElementById('hero').offsetHeight;
+      if (scrollY < heroHeight) {
+        const offset = scrollY * 0.3;
+        canContainer.style.transform = `translateY(${offset}px)`;
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>
