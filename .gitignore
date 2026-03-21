@@ -7,3 +7,4 @@ skills-lock.json
 shift5.io_.png
 *.log
 .env
+.vercel
