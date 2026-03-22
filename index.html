@@ -1,904 +1,394 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#131313" />
-  <title>ZEST — Still Bold. Never Fizzy.</title>
-  <meta name="description" content="ZEST is a premium still vodka orange in a can. No bubbles. No compromise. Just smooth, bold flavor." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'surface': '#131313',
-            'surface-dim': '#0E0E0E',
-            'surface-low': '#1A1A1A',
-            'surface-mid': '#1F1F1F',
-            'surface-high': '#2A2A2A',
-            'surface-bright': '#393939',
-            'primary': '#FFB693',
-            'primary-container': '#FF6B00',
-            'on-primary': '#351000',
-            'on-bg': '#E5E2E1',
-            'outline-v': '#8A8A8A',
-          },
-          fontFamily: {
-            'display': ['Space Grotesk', 'sans-serif'],
-            'body': ['Manrope', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-  <style>
-    :root {
-      --surface: #131313;
-      --surface-dim: #0E0E0E;
-      --surface-low: #1A1A1A;
-      --surface-mid: #1F1F1F;
-      --surface-high: #2A2A2A;
-      --surface-bright: #393939;
-      --primary: #FFB693;
-      --primary-ctr: #FF6B00;
-      --on-primary: #351000;
-      --on-bg: #E5E2E1;
-      --outline-v: #8A8A8A;
-      --ease-heavy: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-organic: cubic-bezier(0.33, 0, 0.2, 1);
-    }
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#131313"/>
+<title>STILL BOLD — Premium Still Vodka Orange</title>
+<meta name="description" content="Experience the raw intensity of premium vodka and cold-pressed orange, perfected without the distraction of bubbles. Smooth, heavy, and unapologetically bold."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-secondary-fixed": "#1b1c1c",
+          "on-error-container": "#ffdad6",
+          "on-surface-variant": "#e2bfb0",
+          "surface-variant": "#353534",
+          "error-container": "#93000a",
+          "on-tertiary-fixed-variant": "#763300",
+          "surface-container-high": "#2a2a2a",
+          "on-error": "#690005",
+          "inverse-primary": "#a04100",
+          "on-tertiary": "#532200",
+          "primary-fixed": "#ffdbcc",
+          "on-secondary-fixed-variant": "#474746",
+          "tertiary-fixed": "#ffdbc9",
+          "on-tertiary-fixed": "#331200",
+          "surface-container-low": "#1c1b1b",
+          "secondary-fixed-dim": "#c8c6c5",
+          "inverse-on-surface": "#313030",
+          "surface-tint": "#ffb693",
+          "secondary": "#c8c6c5",
+          "on-tertiary-container": "#542200",
+          "tertiary": "#ffb68e",
+          "surface-bright": "#3a3939",
+          "surface": "#131313",
+          "on-secondary-container": "#b7b5b4",
+          "error": "#ffb4ab",
+          "primary-container": "#ff6b00",
+          "inverse-surface": "#e5e2e1",
+          "tertiary-container": "#e67d3b",
+          "outline": "#a98a7d",
+          "surface-container": "#201f1f",
+          "primary-fixed-dim": "#ffb693",
+          "on-primary-container": "#572000",
+          "on-primary": "#561f00",
+          "primary": "#ffb693",
+          "on-background": "#e5e2e1",
+          "on-primary-fixed-variant": "#7a3000",
+          "on-primary-fixed": "#351000",
+          "secondary-container": "#474746",
+          "surface-dim": "#131313",
+          "surface-container-highest": "#353534",
+          "tertiary-fixed-dim": "#ffb68e",
+          "surface-container-lowest": "#0e0e0e",
+          "secondary-fixed": "#e4e2e1",
+          "background": "#131313",
+          "on-secondary": "#303030",
+          "outline-variant": "#5a4136",
+          "on-surface": "#e5e2e1"
+        },
+        fontFamily: {
+          "headline": ["Space Grotesk", "sans-serif"],
+          "body": ["Manrope", "sans-serif"],
+          "label": ["Space Grotesk", "sans-serif"]
+        },
+        borderRadius: {
+          "DEFAULT": "1rem",
+          "lg": "2rem",
+          "xl": "3rem",
+          "full": "9999px"
+        },
+      },
+    },
+  }
+</script>
+<style>
+  :root {
+    --ease-heavy: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-organic: cubic-bezier(0.33, 0, 0.2, 1);
+  }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-    body {
-      font-family: 'Manrope', sans-serif;
-      background: var(--surface);
-      color: var(--on-bg);
-      overflow-x: hidden;
-      line-height: 1.5;
-    }
+  body { overflow-x: hidden; }
 
-    /* Scroll fade-up — slow and heavy */
-    .fu {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1.2s var(--ease-heavy),
-                  transform 1.2s var(--ease-heavy);
-    }
-    .fu.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .fu-d1 { transition-delay: 0.15s; }
-    .fu-d2 { transition-delay: 0.3s; }
-    .fu-d3 { transition-delay: 0.45s; }
-    .fu-d4 { transition-delay: 0.6s; }
-    .fu-d5 { transition-delay: 0.75s; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
 
-    /* Hero word reveal — heavy and slow */
-    .hero-word {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(32px);
-      animation: wordReveal 1.4s var(--ease-heavy) forwards;
-    }
-    @keyframes wordReveal {
-      to { opacity: 1; transform: translateY(0); }
-    }
+  .liquid-gradient {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 107, 0, 0.15) 0%, rgba(19, 19, 19, 0) 70%);
+  }
 
-    /* Slow float — 8s cycle, heavy */
-    @keyframes slowFloat {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-16px); }
-    }
+  .text-glow {
+    text-shadow: 0 0 40px rgba(255, 182, 147, 0.15);
+  }
 
-    /* Ambient glow breathe */
-    @keyframes glowBreathe {
-      0%, 100% { opacity: 0.12; transform: translate(-50%, -50%) scale(1); }
-      50% { opacity: 0.2; transform: translate(-50%, -50%) scale(1.05); }
-    }
+  /* Scroll fade-up — slow, heavy */
+  .fu {
+    opacity: 0;
+    transform: translateY(44px);
+    transition: opacity 1.2s var(--ease-heavy), transform 1.2s var(--ease-heavy);
+  }
+  .fu.visible { opacity: 1; transform: translateY(0); }
+  .fu-d1 { transition-delay: 0.15s; }
+  .fu-d2 { transition-delay: 0.3s; }
+  .fu-d3 { transition-delay: 0.45s; }
+  .fu-d4 { transition-delay: 0.6s; }
 
-    /* Fluid scroll indicator pulse */
-    @keyframes fluidPulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 0.8; }
-    }
+  /* Hero word reveal */
+  .hero-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(36px);
+    animation: wordReveal 1.4s var(--ease-heavy) forwards;
+  }
+  @keyframes wordReveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-    /* Scroll indicator — slow, heavy */
-    @keyframes scrollDrift {
-      0%, 100% { transform: translateY(0); opacity: 0.5; }
-      50% { transform: translateY(8px); opacity: 0.9; }
-    }
+  /* Fluid scroll indicator pulse */
+  @keyframes fluidPulse {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
 
-    /* Primary button — gradient, fully rounded, swell */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2.25rem;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-ctr) 100%);
-      color: var(--on-primary);
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 0.01em;
-      border: none;
-      border-radius: 9999px;
-      cursor: pointer;
-      transition: transform 0.5s var(--ease-heavy),
-                  box-shadow 0.5s var(--ease-organic);
-      text-decoration: none;
-    }
-    .btn-primary:hover {
-      transform: scale(1.05);
-      box-shadow: 0 20px 60px rgba(255, 107, 0, 0.25),
-                  0 0 80px rgba(255, 107, 0, 0.08);
-    }
-    .btn-primary:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 4px;
-    }
-    .btn-primary:active {
-      transform: scale(0.97);
-    }
+  /* Scroll progress bar inside fluid indicator */
+  .scroll-progress {
+    transition: height 0.3s var(--ease-organic);
+  }
 
-    /* Secondary button — ghost border, fully rounded */
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2.25rem;
-      background: transparent;
-      color: var(--primary);
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 0.01em;
-      border: 1px solid rgba(138, 138, 138, 0.2);
-      border-radius: 9999px;
-      cursor: pointer;
-      transition: transform 0.5s var(--ease-heavy),
-                  box-shadow 0.5s var(--ease-organic),
-                  background 0.5s var(--ease-organic);
-      text-decoration: none;
-    }
-    .btn-secondary:hover {
-      transform: scale(1.05);
-      background: rgba(255, 182, 147, 0.06);
-      box-shadow: 0 20px 60px rgba(255, 107, 0, 0.1);
-    }
-    .btn-secondary:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 4px;
-    }
-    .btn-secondary:active {
-      transform: scale(0.97);
-    }
-
-    /* Nav link */
-    .nav-link {
-      position: relative;
-      color: var(--on-bg);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.4s var(--ease-organic);
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-ctr));
-      border-radius: 1px;
-      transition: width 0.5s var(--ease-heavy);
-    }
-    .nav-link:hover { color: var(--primary); }
-    .nav-link:hover::after { width: 100%; }
-
-    /* Card — tonal layering, no borders, ambient glow */
-    .card-surface {
-      background: var(--surface-low);
-      border-radius: 1.5rem;
-      transition: transform 0.6s var(--ease-heavy),
-                  box-shadow 0.6s var(--ease-organic);
-    }
-    .card-surface:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 60px rgba(255, 107, 0, 0.06),
-                  0 0 100px rgba(255, 107, 0, 0.03);
-    }
-
-    /* Flavor badge — ghost border pill */
-    .flavor-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background: rgba(255, 107, 0, 0.04);
-      border: 1px solid rgba(138, 138, 138, 0.15);
-      border-radius: 9999px;
-      font-family: 'Manrope', sans-serif;
-      font-weight: 500;
-      color: var(--primary);
-      font-size: 0.9rem;
-      transition: transform 0.5s var(--ease-heavy),
-                  background 0.5s var(--ease-organic);
-    }
-    .flavor-badge:hover {
-      transform: scale(1.05);
-      background: rgba(255, 107, 0, 0.08);
-    }
-
-    /* Image treatment — organic rounded shapes */
-    .img-organic {
-      position: relative;
-      overflow: hidden;
-      border-radius: 2rem;
-    }
-    .img-organic::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(19, 19, 19, 0.8), transparent 60%);
-    }
-    .img-organic img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.8s var(--ease-heavy);
-    }
-    .img-organic:hover img {
-      transform: scale(1.04);
-    }
-
-    /* Can illustration */
-    .can-wrapper {
-      position: relative;
-      width: 200px;
-      height: 380px;
-      margin: 0 auto;
-      animation: slowFloat 8s var(--ease-organic) infinite;
-    }
-    @media (min-width: 768px) {
-      .can-wrapper { width: 260px; height: 480px; }
-    }
-
-    .can-body {
-      position: absolute;
-      inset: 0;
-      border-radius: 20px / 30px;
-      background: linear-gradient(160deg, #FFB693 0%, #FF8C33 25%, #FF6B00 55%, #E85A00 85%, #CC4E00 100%);
-      box-shadow:
-        inset -15px 0 30px rgba(0,0,0,0.3),
-        inset 15px 0 25px rgba(255,255,255,0.06),
-        0 30px 80px rgba(255, 107, 0, 0.15),
-        0 0 150px rgba(255, 107, 0, 0.06);
-      overflow: hidden;
-    }
-    .can-body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 30px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), transparent);
-      border-radius: 20px 20px 0 0 / 30px 30px 0 0;
-    }
-    .can-body::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 30px;
-      background: linear-gradient(0deg, rgba(0,0,0,0.25), transparent);
-      border-radius: 0 0 20px 20px / 0 0 30px 30px;
-    }
-
-    .can-highlight {
-      position: absolute;
-      top: 18%;
-      left: 12%;
-      width: 3px;
-      height: 55%;
-      background: linear-gradient(180deg, transparent, rgba(255,255,255,0.15), transparent);
-      border-radius: 4px;
-    }
-
-    .can-label {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 2;
-    }
-    .can-label .brand {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 2.5rem;
-      color: var(--on-bg);
-      letter-spacing: 0.08em;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-      line-height: 1;
-    }
-    @media (min-width: 768px) {
-      .can-label .brand { font-size: 3.2rem; }
-    }
-    .can-label .sub {
-      font-family: 'Manrope', sans-serif;
-      font-size: 0.6rem;
-      font-weight: 500;
-      color: rgba(229, 226, 225, 0.7);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-top: 6px;
-    }
-
-    .can-tab {
-      position: absolute;
-      top: -6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 16px;
-      background: linear-gradient(180deg, #c8c8c8, #999);
-      border-radius: 4px 4px 8px 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      z-index: 3;
-    }
-    .can-tab::after {
-      content: '';
-      position: absolute;
-      top: 4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 18px;
-      height: 8px;
-      border: 2px solid rgba(0,0,0,0.15);
-      border-radius: 10px;
-    }
-
-    /* Ambient glow behind can */
-    .can-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(255,107,0,0.15) 0%, rgba(255,107,0,0.04) 40%, transparent 70%);
-      border-radius: 50%;
-      animation: glowBreathe 6s var(--ease-organic) infinite;
-      z-index: -1;
-    }
-    @media (min-width: 768px) {
-      .can-glow { width: 560px; height: 560px; }
-    }
-
-    /* Fluid scroll indicator */
-    .fluid-indicator {
-      width: 40px;
-      height: 40px;
-      border-radius: 9999px;
-      background: var(--surface-high);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .fluid-indicator svg {
-      animation: fluidPulse 3s var(--ease-organic) infinite;
-    }
-  </style>
+  /* Selection colors */
+  ::selection {
+    background: #ff6b00;
+    color: #351000;
+  }
+</style>
 </head>
-<body>
+<body class="bg-surface text-on-surface font-body">
 
-  <!-- ==================== NAV — Glassmorphism ==================== -->
-  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="mainNav">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex items-center justify-between">
-      <a href="#" class="font-display font-bold text-2xl tracking-wider text-on-bg hover:text-primary transition-colors duration-400">
-        ZEST
+<!-- ==================== NAV — Glass + Ambient Glow ==================== -->
+<nav class="fixed top-0 w-full z-50 transition-all duration-500" id="mainNav" style="transition-timing-function: var(--ease-heavy)">
+  <div class="flex justify-between items-center w-full px-6 md:px-8 py-5 md:py-6 max-w-screen-2xl mx-auto">
+    <a href="#" class="font-headline text-xl md:text-2xl font-black tracking-tighter text-primary-container uppercase hover:text-primary transition-colors duration-500">STILL BOLD</a>
+    <div class="hidden md:flex items-center space-x-10 lg:space-x-12">
+      <a class="font-headline tracking-tight uppercase text-sm font-bold text-on-surface/60 hover:text-primary-container transition-all duration-500" href="#pour">The Drink</a>
+      <a class="font-headline tracking-tight uppercase text-sm font-bold text-on-surface/60 hover:text-primary-container transition-all duration-500" href="#why">Why Still?</a>
+      <a class="font-headline tracking-tight uppercase text-sm font-bold text-on-surface/60 hover:text-primary-container transition-all duration-500" href="#cta">Buy</a>
+    </div>
+    <div class="hidden md:block">
+      <a href="#cta" class="bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-label font-bold px-7 py-3 rounded-full hover:scale-105 transition-transform duration-500 uppercase text-sm tracking-widest inline-block" style="transition-timing-function: var(--ease-heavy)">
+        Buy Now
       </a>
-      <div class="hidden md:flex items-center gap-10">
-        <a href="#why" class="nav-link font-body text-sm">Why Still?</a>
-        <a href="#product" class="nav-link font-body text-sm">The Drink</a>
-        <a href="#taste" class="nav-link font-body text-sm">Taste</a>
-        <a href="#find" class="btn-primary text-sm py-3 px-6">Buy Now</a>
-      </div>
-      <!-- Mobile menu button -->
-      <button class="md:hidden flex flex-col gap-1.5 p-2 group" id="menuBtn" aria-label="Menu">
-        <span class="w-6 h-0.5 bg-on-bg rounded-full transition-transform duration-500 origin-center group-[.open]:rotate-45 group-[.open]:translate-y-2" style="transition-timing-function: var(--ease-heavy)"></span>
-        <span class="w-6 h-0.5 bg-on-bg rounded-full transition-opacity duration-400 group-[.open]:opacity-0"></span>
-        <span class="w-6 h-0.5 bg-on-bg rounded-full transition-transform duration-500 origin-center group-[.open]:-rotate-45 group-[.open]:-translate-y-2" style="transition-timing-function: var(--ease-heavy)"></span>
-      </button>
     </div>
-    <!-- Mobile menu -->
-    <div class="md:hidden hidden px-6 pb-8 flex-col gap-5" id="mobileMenu">
-      <a href="#why" class="nav-link font-body text-lg py-2">Why Still?</a>
-      <a href="#product" class="nav-link font-body text-lg py-2">The Drink</a>
-      <a href="#taste" class="nav-link font-body text-lg py-2">Taste</a>
-      <a href="#find" class="btn-primary text-center mt-3">Buy Now</a>
-    </div>
-  </nav>
+    <!-- Mobile menu button -->
+    <button class="md:hidden flex flex-col gap-1.5 p-2 group" id="menuBtn" aria-label="Menu">
+      <span class="w-6 h-0.5 bg-on-surface rounded-full transition-all duration-500 origin-center group-[.open]:rotate-45 group-[.open]:translate-y-2" style="transition-timing-function: var(--ease-heavy)"></span>
+      <span class="w-6 h-0.5 bg-on-surface rounded-full transition-opacity duration-300 group-[.open]:opacity-0"></span>
+      <span class="w-6 h-0.5 bg-on-surface rounded-full transition-all duration-500 origin-center group-[.open]:-rotate-45 group-[.open]:-translate-y-2" style="transition-timing-function: var(--ease-heavy)"></span>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div class="md:hidden hidden px-6 pb-8 flex-col gap-6" id="mobileMenu" style="background: rgba(19,19,19,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px)">
+    <a href="#pour" class="font-headline tracking-tight uppercase text-lg font-bold text-on-surface/70 hover:text-primary-container transition-colors duration-400 py-2">The Drink</a>
+    <a href="#why" class="font-headline tracking-tight uppercase text-lg font-bold text-on-surface/70 hover:text-primary-container transition-colors duration-400 py-2">Why Still?</a>
+    <a href="#cta" class="bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-label font-bold px-8 py-4 rounded-full text-center uppercase tracking-widest mt-2">Buy Now</a>
+  </div>
+</nav>
 
-  <!-- ==================== HERO — Asymmetric editorial ==================== -->
-  <section class="relative min-h-screen flex items-center overflow-hidden" id="hero">
-    <!-- Background: deep obsidian with ambient orange radials -->
-    <div class="absolute inset-0" style="background:
-      radial-gradient(ellipse 80% 60% at 25% 30%, rgba(255,107,0,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 50% at 80% 70%, rgba(255,182,147,0.04) 0%, transparent 60%),
-      linear-gradient(180deg, #0E0E0E 0%, #131313 40%, #0E0E0E 100%)">
-    </div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-36 pb-28 lg:pb-40 w-full">
-      <div class="grid lg:grid-cols-12 gap-8 items-center">
-        <!-- Text — offset left, asymmetric -->
-        <div class="lg:col-span-7 text-center lg:text-left order-2 lg:order-1">
-          <p class="font-body font-light text-primary/80 text-base tracking-widest uppercase mb-6 hero-word" style="animation-delay: 0s">
-            Introducing
-          </p>
-          <h1 class="font-display font-bold leading-[1.02] tracking-tight mb-8" style="font-size: clamp(3rem, 8vw, 5.5rem)">
-            <span class="hero-word text-on-bg" style="animation-delay: 0.2s">Still</span>
-            <span class="hero-word text-on-bg" style="animation-delay: 0.4s">Bold.</span>
-            <br />
-            <span class="hero-word" style="animation-delay: 0.6s; background: linear-gradient(135deg, #FFB693, #FF6B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Never</span>
-            <span class="hero-word" style="animation-delay: 0.8s; background: linear-gradient(135deg, #FFB693, #FF6B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Fizzy.</span>
-          </h1>
-          <p class="font-body font-light text-on-bg/50 text-lg lg:text-xl max-w-lg mx-auto lg:mx-0 mb-12 leading-relaxed hero-word" style="animation-delay: 1s; line-height: 1.6">
-            Premium vodka orange in a can. No bubbles. No bloat. No compromise. Just smooth, bold flavour the way it was meant to be.
-          </p>
-          <div class="flex flex-wrap gap-5 justify-center lg:justify-start hero-word" style="animation-delay: 1.2s">
-            <a href="#find" class="btn-primary">
-              Buy Now
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-            <a href="#why" class="btn-secondary">
-              Learn More
-            </a>
-          </div>
-        </div>
-
-        <!-- Can — offset right with overlap -->
-        <div class="lg:col-span-5 relative flex justify-center order-1 lg:order-2" id="canContainer">
-          <div class="can-glow"></div>
-          <div class="can-wrapper">
-            <div class="can-tab"></div>
-            <div class="can-body">
-              <div class="can-highlight"></div>
-              <div class="can-label">
-                <div class="brand">ZEST</div>
-                <div class="sub">Vodka &amp; Orange</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Fluid scroll indicator -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3" style="animation: scrollDrift 3.5s var(--ease-organic) infinite">
-      <span class="font-body text-xs text-on-bg/30 tracking-[0.2em] uppercase font-light">Scroll</span>
-      <div class="fluid-indicator">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-ctr)" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== WHY STILL — Editorial asymmetry ==================== -->
-  <section class="relative py-32 md:py-44" id="why" style="background: linear-gradient(180deg, var(--surface) 0%, var(--surface-low) 50%, var(--surface) 100%)">
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
-      <div class="grid lg:grid-cols-12 gap-16 lg:gap-20 items-center">
-        <!-- Text — asymmetric offset -->
-        <div class="lg:col-span-7">
-          <p class="font-body font-light text-primary/60 text-sm tracking-[0.2em] uppercase mb-5 fu">The Philosophy</p>
-          <h2 class="font-display font-bold tracking-tight leading-[1.05] mb-6 fu fu-d1" style="font-size: clamp(2.5rem, 5vw, 3.75rem)">
-            Why <span style="background: linear-gradient(135deg, #FFB693, #FF6B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Still</span>?
-          </h2>
-          <p class="font-body font-light text-on-bg/40 text-lg mb-12 leading-relaxed fu fu-d2" style="line-height: 1.6">
-            Because the best cocktails were never fizzy.
-          </p>
-
-          <div class="space-y-10 fu fu-d3">
-            <div class="flex gap-5">
-              <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-surface-dim flex items-center justify-center" style="box-shadow: 0 0 40px rgba(255,107,0,0.04)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-ctr)" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-5"/></svg>
-              </div>
-              <div>
-                <h3 class="font-display font-semibold text-lg text-on-bg mb-2">Smoother Drinking</h3>
-                <p class="font-body font-light text-on-bg/40 leading-relaxed" style="line-height: 1.6">No carbonation means no harsh bite, no burning fizz. Just a clean, smooth sip from start to finish.</p>
-              </div>
-            </div>
-            <div class="flex gap-5">
-              <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-surface-dim flex items-center justify-center" style="box-shadow: 0 0 40px rgba(255,107,0,0.04)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-ctr)" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-5"/></svg>
-              </div>
-              <div>
-                <h3 class="font-display font-semibold text-lg text-on-bg mb-2">Zero Bloat</h3>
-                <p class="font-body font-light text-on-bg/40 leading-relaxed" style="line-height: 1.6">Carbonation fills you up. ZEST doesn't. Drink it comfortably — one can or three.</p>
-              </div>
-            </div>
-            <div class="flex gap-5">
-              <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-surface-dim flex items-center justify-center" style="box-shadow: 0 0 40px rgba(255,107,0,0.04)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-ctr)" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-5"/></svg>
-              </div>
-              <div>
-                <h3 class="font-display font-semibold text-lg text-on-bg mb-2">Pure Flavour</h3>
-                <p class="font-body font-light text-on-bg/40 leading-relaxed" style="line-height: 1.6">Without bubbles masking the taste, you get the full depth of real orange and premium vodka in every sip.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Visual: Still vs Fizzy — tonal layered cards -->
-        <div class="lg:col-span-5 fu fu-d2">
-          <div class="grid grid-cols-2 gap-8">
-            <!-- Still glass -->
-            <div class="relative rounded-3xl overflow-hidden p-7 text-center" style="background: linear-gradient(180deg, var(--surface-low), var(--surface-dim))">
-              <div class="w-20 h-32 mx-auto mb-5 relative overflow-hidden" style="border-radius: 6px 6px 12px 12px; background: linear-gradient(180deg, #FFB693 0%, #FF6B00 100%);">
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
-              </div>
-              <p class="font-display font-semibold text-on-bg text-lg">Still</p>
-              <p class="font-body font-light text-on-bg/30 text-sm mt-1">Smooth &amp; clean</p>
-              <div class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center" style="background: rgba(255,107,0,0.1)">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-ctr)" stroke-width="3"><path d="m5 12 5 5L20 7"/></svg>
-              </div>
-            </div>
-            <!-- Fizzy glass -->
-            <div class="relative rounded-3xl overflow-hidden p-7 text-center opacity-40" style="background: linear-gradient(180deg, var(--surface-low), var(--surface-dim))">
-              <div class="w-20 h-32 mx-auto mb-5 relative overflow-hidden" style="border-radius: 6px 6px 12px 12px; background: linear-gradient(180deg, rgba(255,182,147,0.3), rgba(255,107,0,0.35));">
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
-              </div>
-              <p class="font-display font-semibold text-on-bg/60 text-lg">Fizzy</p>
-              <p class="font-body font-light text-on-bg/20 text-sm mt-1">Bloat &amp; burn</p>
-              <div class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center" style="background: rgba(255,255,255,0.03)">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--surface-bright)" stroke-width="3"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== PRODUCT DETAILS — Tonal card layering ==================== -->
-  <section class="relative py-32 md:py-44" id="product" style="background: var(--surface)">
-    <!-- Ambient radial -->
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 50% at 20% 50%, rgba(255,107,0,0.03) 0%, transparent 60%)"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
-      <div class="text-center mb-20 lg:mb-24">
-        <p class="font-body font-light text-primary/60 text-sm tracking-[0.2em] uppercase mb-5 fu">The Ingredients</p>
-        <h2 class="font-display font-bold tracking-tight leading-[1.05] mb-5 fu fu-d1" style="font-size: clamp(2.5rem, 5vw, 3.75rem)">
-          What's <span style="background: linear-gradient(135deg, #FFB693, #FF6B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Inside</span>
-        </h2>
-        <p class="font-body font-light text-on-bg/40 text-lg max-w-xl mx-auto fu fu-d2" style="line-height: 1.6">
-          Three simple things done right. Nothing else.
-        </p>
-      </div>
-
-      <!-- Asymmetric card grid -->
-      <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
-        <!-- Card 1: Real Orange -->
-        <div class="card-surface p-10 lg:p-12 fu fu-d1">
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-8" style="background: linear-gradient(135deg, rgba(255,107,0,0.08), rgba(255,107,0,0.02))">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary-ctr)" stroke-width="1.5" stroke-linecap="round">
-              <circle cx="12" cy="13" r="8"/>
-              <path d="M12 5c0-2 1-3 3-3"/>
-              <path d="M9.5 5.5C10.5 4.5 11 4 12 5"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-semibold text-xl text-on-bg mb-4">Real Orange</h3>
-          <p class="font-body font-light text-on-bg/35 leading-relaxed" style="line-height: 1.6">
-            Made with real orange juice — not artificial flavouring, not "orange-type" concentrate. The real thing, squeezed and blended.
-          </p>
-        </div>
-
-        <!-- Card 2: Premium Vodka — offset up for asymmetry -->
-        <div class="card-surface p-10 lg:p-12 md:-mt-8 fu fu-d2">
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-8" style="background: linear-gradient(135deg, rgba(255,107,0,0.08), rgba(255,107,0,0.02))">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary-ctr)" stroke-width="1.5" stroke-linecap="round">
-              <path d="M8 2h8l-1 7h-6L8 2z"/>
-              <path d="M9 9h6v1a7 7 0 01-6 0V9z"/>
-              <rect x="8" y="18" width="8" height="4" rx="1"/>
-              <path d="M10 14v4"/>
-              <path d="M14 14v4"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-semibold text-xl text-on-bg mb-4">Premium Vodka</h3>
-          <p class="font-body font-light text-on-bg/35 leading-relaxed" style="line-height: 1.6">
-            Triple-distilled for purity. No harsh edges, no aftertaste. A clean, smooth spirit that lets the orange shine through.
-          </p>
-        </div>
-
-        <!-- Card 3: No Carbonation -->
-        <div class="card-surface p-10 lg:p-12 fu fu-d3">
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-8" style="background: linear-gradient(135deg, rgba(255,107,0,0.08), rgba(255,107,0,0.02))">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary-ctr)" stroke-width="1.5" stroke-linecap="round">
-              <circle cx="12" cy="14" r="8"/>
-              <path d="m9 14 2 2 4-4"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-semibold text-xl text-on-bg mb-4">Zero Carbonation</h3>
-          <p class="font-body font-light text-on-bg/35 leading-relaxed" style="line-height: 1.6">
-            Still and sessionable. No gas, no bloat, no burping. Just a smooth drink you can sip all night without feeling full.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== LIFESTYLE — Organic image masks ==================== -->
-  <section class="relative py-32 md:py-44 overflow-hidden" style="background: linear-gradient(180deg, var(--surface) 0%, var(--surface-low) 50%, var(--surface) 100%)">
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
-      <div class="text-center mb-20 lg:mb-24">
-        <p class="font-body font-light text-primary/60 text-sm tracking-[0.2em] uppercase mb-5 fu">The Occasions</p>
-        <h2 class="font-display font-bold tracking-tight leading-[1.05] mb-5 fu fu-d1" style="font-size: clamp(2.5rem, 5vw, 3.75rem)">
-          From <span style="background: linear-gradient(135deg, #FFB693, #FF6B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Rooftops</span> to Poolsides
-        </h2>
-        <p class="font-body font-light text-on-bg/40 text-lg max-w-xl mx-auto fu fu-d2" style="line-height: 1.6">
-          ZEST goes where you go. No glass required.
-        </p>
-      </div>
-
-      <!-- Asymmetric overlapping grid -->
-      <div class="grid md:grid-cols-3 gap-6 lg:gap-8 fu fu-d3">
-        <div class="img-organic aspect-[4/5]">
-          <img src="https://placehold.co/600x750/2a2a2a/FF6B00?text=Beach+Day" alt="Beach" loading="lazy" />
-          <div class="absolute bottom-0 left-0 right-0 p-7 z-10">
-            <p class="font-display font-semibold text-on-bg text-xl">Beach Day</p>
-            <p class="font-body font-light text-on-bg/40 text-sm mt-1">Sun, sand, smooth sips</p>
-          </div>
-        </div>
-        <div class="img-organic aspect-[4/5] md:-mt-12">
-          <img src="https://placehold.co/600x750/2a2a2a/FF6B00?text=Dinner+Party" alt="Dinner Party" loading="lazy" />
-          <div class="absolute bottom-0 left-0 right-0 p-7 z-10">
-            <p class="font-display font-semibold text-on-bg text-xl">Dinner Party</p>
-            <p class="font-body font-light text-on-bg/40 text-sm mt-1">Sophisticated &amp; effortless</p>
-          </div>
-        </div>
-        <div class="img-organic aspect-[4/5]">
-          <img src="https://placehold.co/600x750/2a2a2a/FF6B00?text=Night+Out" alt="Night Out" loading="lazy" />
-          <div class="absolute bottom-0 left-0 right-0 p-7 z-10">
-            <p class="font-display font-semibold text-on-bg text-xl">Night Out</p>
-            <p class="font-body font-light text-on-bg/40 text-sm mt-1">Bold, not bloated</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== FLAVOUR PROFILE ==================== -->
-  <section class="relative py-32 md:py-44" id="taste" style="background: var(--surface)">
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse 70% 50% at 70% 30%, rgba(255,107,0,0.04) 0%, transparent 60%)"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
-      <div class="grid lg:grid-cols-12 gap-16 lg:gap-20 items-center">
-        <!-- Can visual — offset left -->
-        <div class="lg:col-span-5 flex justify-center fu">
-          <div class="relative">
-            <div class="can-glow" style="width:380px;height:380px;"></div>
-            <div class="can-wrapper">
-              <div class="can-tab"></div>
-              <div class="can-body">
-                <div class="can-highlight"></div>
-                <div class="can-label">
-                  <div class="brand">ZEST</div>
-                  <div class="sub">Vodka &amp; Orange</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Taste notes — offset right -->
-        <div class="lg:col-span-7">
-          <p class="font-body font-light text-primary/60 text-sm tracking-[0.2em] uppercase mb-5 fu">The Experience</p>
-          <h2 class="font-display font-bold tracking-tight leading-[1.05] mb-5 fu fu-d1" style="font-size: clamp(2.5rem, 5vw, 3.75rem)">
-            How It <span style="background: linear-gradient(135deg, #FFB693, #FF6B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Tastes</span>
-          </h2>
-          <p class="font-body font-light text-on-bg/40 text-lg mb-12 fu fu-d2" style="line-height: 1.6">
-            Every sip is a balance of bright citrus and clean spirit. No sweetness overload. No artificial tang.
-          </p>
-
-          <!-- Flavor badges — ghost border pills -->
-          <div class="flex flex-wrap gap-3 fu fu-d3">
-            <div class="flavor-badge">
-              <span class="w-2 h-2 rounded-full" style="background: var(--primary-ctr)"></span>
-              Bright Citrus
-            </div>
-            <div class="flavor-badge">
-              <span class="w-2 h-2 rounded-full" style="background: var(--primary-ctr)"></span>
-              Clean Finish
-            </div>
-            <div class="flavor-badge">
-              <span class="w-2 h-2 rounded-full" style="background: var(--primary-ctr)"></span>
-              Smooth Body
-            </div>
-            <div class="flavor-badge">
-              <span class="w-2 h-2 rounded-full" style="background: var(--primary-ctr)"></span>
-              Natural Sweetness
-            </div>
-            <div class="flavor-badge">
-              <span class="w-2 h-2 rounded-full" style="background: var(--primary-ctr)"></span>
-              No Aftertaste
-            </div>
-          </div>
-
-          <!-- Stats — tonal layered, no borders -->
-          <div class="grid grid-cols-3 gap-5 mt-14 fu fu-d4">
-            <div class="text-center p-5 rounded-2xl" style="background: var(--surface-low)">
-              <p class="font-display font-bold text-2xl" style="background: linear-gradient(135deg, #FFB693, #FF6B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">5%</p>
-              <p class="font-body font-light text-on-bg/25 text-xs mt-1.5 tracking-wide uppercase">ABV</p>
-            </div>
-            <div class="text-center p-5 rounded-2xl" style="background: var(--surface-low)">
-              <p class="font-display font-bold text-2xl" style="background: linear-gradient(135deg, #FFB693, #FF6B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">330</p>
-              <p class="font-body font-light text-on-bg/25 text-xs mt-1.5 tracking-wide uppercase">ML</p>
-            </div>
-            <div class="text-center p-5 rounded-2xl" style="background: var(--surface-low)">
-              <p class="font-display font-bold text-2xl" style="background: linear-gradient(135deg, #FFB693, #FF6B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">0g</p>
-              <p class="font-body font-light text-on-bg/25 text-xs mt-1.5 tracking-wide uppercase">Added Sugar</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== CTA — Gradient backdrop ==================== -->
-  <section class="relative py-32 md:py-44 overflow-hidden" id="find">
-    <div class="absolute inset-0" style="background:
-      radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255,107,0,0.1) 0%, transparent 70%),
-      linear-gradient(180deg, var(--surface-low), var(--surface-dim))">
-    </div>
-    <!-- Decorative ambient rings — no borders, just subtle radial glows -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] rounded-full" style="background: radial-gradient(circle, transparent 48%, rgba(255,107,0,0.03) 49%, rgba(255,107,0,0.03) 50%, transparent 51%)"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full" style="background: radial-gradient(circle, transparent 46%, rgba(255,107,0,0.04) 47%, rgba(255,107,0,0.04) 48%, transparent 49%)"></div>
-
-    <div class="relative z-10 max-w-3xl mx-auto px-6 lg:px-10 text-center">
-      <p class="font-body font-light text-primary/60 text-base tracking-widest uppercase mb-5 fu">Ready?</p>
-      <h2 class="font-display font-bold tracking-tight leading-[1.05] mb-6 fu fu-d1" style="font-size: clamp(2.5rem, 6vw, 4rem)">
-        Get Your <span style="background: linear-gradient(135deg, #FFB693, #FF6B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">ZEST</span>
-      </h2>
-      <p class="font-body font-light text-on-bg/40 text-lg mb-12 max-w-lg mx-auto fu fu-d2" style="line-height: 1.6">
-        Available at selected retailers and online. The smoothest vodka orange you'll ever drink.
+<!-- ==================== HERO ==================== -->
+<section class="relative pt-28 md:pt-32 pb-20 md:pb-24 overflow-hidden min-h-screen flex items-center" id="hero">
+  <div class="absolute inset-0 liquid-gradient pointer-events-none"></div>
+  <div class="max-w-screen-2xl mx-auto px-6 md:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center w-full">
+    <div class="lg:col-span-7 space-y-8 md:space-y-10">
+      <h1 class="font-headline text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] text-glow">
+        <span class="hero-word" style="animation-delay: 0s">STILL</span>
+        <span class="hero-word" style="animation-delay: 0.15s">BOLD.</span><br/>
+        <span class="hero-word text-primary-container italic" style="animation-delay: 0.35s">NEVER</span>
+        <span class="hero-word" style="animation-delay: 0.5s">FIZZY.</span>
+      </h1>
+      <p class="text-lg md:text-xl lg:text-2xl text-on-surface-variant max-w-xl font-light leading-relaxed hero-word" style="animation-delay: 0.7s; line-height: 1.6">
+        Experience the raw intensity of premium vodka and cold-pressed orange, perfected without the distraction of bubbles. Smooth, heavy, and unapologetically bold.
       </p>
-      <div class="flex flex-wrap gap-5 justify-center fu fu-d3">
-        <a href="#" class="btn-primary text-lg px-10 py-5">
-          Buy Now
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      <div class="flex flex-col sm:flex-row gap-5 hero-word" style="animation-delay: 0.9s">
+        <a href="#cta" class="bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed px-8 md:px-10 py-4 md:py-5 rounded-full font-label font-bold text-base md:text-lg hover:scale-105 transition-transform duration-500 shadow-[0_10px_40px_rgba(255,107,0,0.3)] text-center" style="transition-timing-function: var(--ease-heavy)">
+          Shop Premium Still
         </a>
-        <a href="#" class="btn-secondary text-lg px-10 py-5">
-          Find Near You
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="#pour" class="border border-outline-variant/20 text-on-surface px-8 md:px-10 py-4 md:py-5 rounded-full font-label font-bold text-base md:text-lg hover:scale-105 transition-transform duration-500 bg-surface-container-low/50 backdrop-blur-md text-center" style="transition-timing-function: var(--ease-heavy)">
+          Learn More
         </a>
       </div>
     </div>
-  </section>
-
-  <!-- ==================== FOOTER — Surface-dim, no dividers ==================== -->
-  <footer class="relative py-20" style="background: var(--surface-dim)">
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
-      <div class="grid md:grid-cols-3 gap-14 mb-14">
-        <!-- Brand -->
-        <div>
-          <p class="font-display font-bold text-2xl text-on-bg tracking-wider mb-4">ZEST</p>
-          <p class="font-body font-light text-on-bg/30 text-sm leading-relaxed" style="line-height: 1.6">
-            Premium still vodka orange in a can. Bold flavour, zero fizz.
-          </p>
-        </div>
-        <!-- Links -->
-        <div>
-          <p class="font-display font-semibold text-sm text-on-bg/40 tracking-[0.15em] uppercase mb-5">Explore</p>
-          <div class="flex flex-col gap-4">
-            <a href="#why" class="nav-link font-body text-sm text-on-bg/35">Why Still?</a>
-            <a href="#product" class="nav-link font-body text-sm text-on-bg/35">The Drink</a>
-            <a href="#taste" class="nav-link font-body text-sm text-on-bg/35">Taste</a>
-            <a href="#find" class="nav-link font-body text-sm text-on-bg/35">Buy Now</a>
-          </div>
-        </div>
-        <!-- Social -->
-        <div>
-          <p class="font-display font-semibold text-sm text-on-bg/40 tracking-[0.15em] uppercase mb-5">Follow Us</p>
-          <div class="flex gap-4">
-            <a href="#" class="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-500" style="background: var(--surface-low); transition-timing-function: var(--ease-heavy)" onmouseenter="this.style.background='rgba(255,107,0,0.1)';this.style.boxShadow='0 0 30px rgba(255,107,0,0.06)'" onmouseleave="this.style.background='var(--surface-low)';this.style.boxShadow='none'" aria-label="Instagram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--on-bg)" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="var(--on-bg)" stroke="none"/></svg>
-            </a>
-            <a href="#" class="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-500" style="background: var(--surface-low); transition-timing-function: var(--ease-heavy)" onmouseenter="this.style.background='rgba(255,107,0,0.1)';this.style.boxShadow='0 0 30px rgba(255,107,0,0.06)'" onmouseleave="this.style.background='var(--surface-low)';this.style.boxShadow='none'" aria-label="Twitter">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--on-bg)" stroke-width="1.5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-            </a>
-            <a href="#" class="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-500" style="background: var(--surface-low); transition-timing-function: var(--ease-heavy)" onmouseenter="this.style.background='rgba(255,107,0,0.1)';this.style.boxShadow='0 0 30px rgba(255,107,0,0.06)'" onmouseleave="this.style.background='var(--surface-low)';this.style.boxShadow='none'" aria-label="TikTok">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--on-bg)" stroke-width="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
-            </a>
-          </div>
-        </div>
+    <div class="lg:col-span-5 relative hero-word" style="animation-delay: 0.4s">
+      <div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden shadow-[0_50px_100px_rgba(255,107,0,0.1)]">
+        <img alt="Premium sleek orange can" class="w-full h-full object-cover transform scale-110 rotate-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqfyD1oqYNQAIuvawPLpZTbkWy4lOPdHbt_NWWve5ZSFF5EMhb8dHbnMkN6y2z15ytfrQGowXeN0-gwbF_-n-CofsDxnDAMJWlU2AKkz4PDjA0sBiH6ZIF8RndgxhbWqAzC-f_wq-0aJc1kR8hQmxf6soCj813L1MB5x5vrC69TlNMfnpGC0PFc1TA4y-rXHe2I8svq9imfWTiN12rRp4U7NnBe5IHK6H_gUN3As0ChyoJb1Sy3kQ2b-Mgql8HLMQtFyqMOfWh6w" id="heroImage"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
       </div>
+      <!-- Ambient glow -->
+      <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-primary-container/20 rounded-full blur-[80px] pointer-events-none"></div>
+    </div>
+  </div>
+</section>
 
-      <!-- Bottom bar — color shift separation, no border -->
-      <div class="pt-10" style="background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 1px, transparent 100%)">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p class="font-body font-light text-xs text-on-bg/20">
-            &copy; 2026 ZEST. All rights reserved. Drink responsibly. Must be of legal drinking age.
-          </p>
-          <div class="flex gap-8">
-            <a href="#" class="font-body font-light text-xs text-on-bg/20 hover:text-on-bg/45 transition-colors duration-400">Privacy Policy</a>
-            <a href="#" class="font-body font-light text-xs text-on-bg/20 hover:text-on-bg/45 transition-colors duration-400">Terms</a>
-          </div>
-        </div>
+<!-- ==================== THE ART OF THE STILL POUR ==================== -->
+<section class="bg-surface-container-lowest py-24 md:py-32 relative overflow-hidden" id="pour">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+    <div class="order-2 md:order-1 relative fu">
+      <div class="rounded-xl overflow-hidden aspect-square border border-outline-variant/10">
+        <img alt="Smooth orange liquid pour" class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDud0GFYbtNicw2823vhCUxteVvaPwxoDW7L7bKsCkTbUTWNvw5BIfut-FpO4KC4IZGcOdwDxSeOBvfXPQb7MT1v_S8wJx50CVhjQbbzuRaKUhcLBGOLRmfF4H2qIsn_dZe512MXFBGvFZ9YtZQhJVxYu5BpbK08hcZBiGsbDfmdDpA2bCnPu3J-GOahHQrGL17uXUZM4CtQRbjQB2Fz2fXMhuBX9KIMqyB5e5oouO6XRvF1HvxszOcLO9muSMXt9tm19f3RQQmUQ"/>
       </div>
     </div>
-  </footer>
+    <div class="order-1 md:order-2 space-y-8">
+      <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white fu">
+        THE ART OF THE <span class="text-primary">STILL</span> POUR
+      </h2>
+      <p class="text-base md:text-lg text-on-surface-variant leading-relaxed font-light fu fu-d1" style="line-height: 1.6">
+        We removed the carbonation to let the ingredients speak. No fizz to mask the bite of the vodka or the sweetness of the zest. Just a heavy, luxurious mouthfeel that lingers long after the first sip.
+      </p>
+      <div class="flex items-center gap-4 text-primary fu fu-d2">
+        <span class="material-symbols-outlined text-3xl md:text-4xl" style="font-variation-settings: 'FILL' 1">water_drop</span>
+        <span class="font-headline font-bold uppercase tracking-widest text-xs md:text-sm">Viscous &amp; Pure</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- ==================== SCRIPTS ==================== -->
-  <script>
-    // Scroll fade-up observer
-    const fuObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          fuObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+<!-- ==================== WHY WE REFUSE TO FIZZ — Bento Grid ==================== -->
+<section class="py-24 md:py-32 px-6 md:px-8 max-w-screen-2xl mx-auto" id="why">
+  <div class="mb-14 md:mb-20 space-y-4">
+    <h3 class="font-headline text-xs md:text-sm uppercase tracking-[0.3em] text-primary-container font-black fu">Philosophy</h3>
+    <h2 class="font-headline text-4xl sm:text-5xl md:text-7xl font-bold fu fu-d1">WHY WE REFUSE TO FIZZ.</h2>
+  </div>
 
-    document.querySelectorAll('.fu').forEach(el => fuObserver.observe(el));
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+    <!-- Zero Bloat — Large card -->
+    <div class="md:col-span-8 bg-surface-container-high p-8 md:p-12 rounded-xl flex flex-col justify-between min-h-[320px] md:min-h-[400px] group hover:bg-surface-bright transition-colors duration-500 fu fu-d1">
+      <div class="space-y-5 md:space-y-6">
+        <span class="material-symbols-outlined text-4xl md:text-5xl text-primary" style="font-variation-settings: 'FILL' 1">compress</span>
+        <h4 class="font-headline text-3xl md:text-4xl font-bold">ZERO BLOAT.</h4>
+        <p class="text-on-surface-variant text-base md:text-lg max-w-md" style="line-height: 1.6">Carbonation is air. Air is bloat. We filled that space with more of what you actually want: bold, uncompromised flavor.</p>
+      </div>
+      <div class="pt-6 md:pt-8" style="border-top: 1px solid rgba(90,65,54,0.1)">
+        <span class="font-label text-xs uppercase tracking-widest opacity-40">0% Carbonation / 100% Bold</span>
+      </div>
+    </div>
 
-    // Nav glassmorphism on scroll
-    const nav = document.getElementById('mainNav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        nav.style.background = 'rgba(19, 19, 19, 0.85)';
-        nav.style.backdropFilter = 'blur(20px) saturate(1.2)';
-        nav.style.webkitBackdropFilter = 'blur(20px) saturate(1.2)';
-      } else {
-        nav.style.background = 'transparent';
-        nav.style.backdropFilter = 'none';
-        nav.style.webkitBackdropFilter = 'none';
-      }
-    }, { passive: true });
+    <!-- Pure Taste — Orange accent card -->
+    <div class="md:col-span-4 bg-primary-container p-8 md:p-12 rounded-xl flex flex-col justify-between min-h-[320px] md:min-h-[400px] text-on-primary-fixed fu fu-d2">
+      <div class="space-y-5 md:space-y-6">
+        <span class="material-symbols-outlined text-4xl md:text-5xl" style="font-variation-settings: 'FILL' 1">science</span>
+        <h4 class="font-headline text-3xl md:text-4xl font-bold leading-none">PURE TASTE PRECISION.</h4>
+      </div>
+      <p class="font-medium text-sm md:text-base">Every drop is engineered for smoothness. No bubbles to distract your palate from our hand-selected grains and citrus.</p>
+    </div>
 
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => {
-      menuBtn.classList.toggle('open');
-      const isOpen = menuBtn.classList.contains('open');
-      mobileMenu.style.display = isOpen ? 'flex' : 'none';
-      if (isOpen) {
-        nav.style.background = 'rgba(19, 19, 19, 0.95)';
-        nav.style.backdropFilter = 'blur(20px)';
-        nav.style.webkitBackdropFilter = 'blur(20px)';
+    <!-- Heavy Impact — Ghost border card -->
+    <div class="md:col-span-4 bg-surface-container-low p-8 md:p-12 rounded-xl flex flex-col justify-between min-h-[320px] md:min-h-[400px] fu fu-d1" style="border: 1px solid rgba(90,65,54,0.1)">
+      <div class="space-y-5 md:space-y-6">
+        <span class="material-symbols-outlined text-4xl md:text-5xl text-primary" style="font-variation-settings: 'FILL' 1">bolt</span>
+        <h4 class="font-headline text-3xl md:text-4xl font-bold">HEAVY IMPACT.</h4>
+        <p class="text-on-surface-variant text-sm md:text-base" style="line-height: 1.6">The weight of a real drink. Still Bold feels premium in the hand and on the tongue.</p>
+      </div>
+    </div>
+
+    <!-- Smooth Finish — Image card -->
+    <div class="md:col-span-8 relative rounded-xl overflow-hidden group min-h-[320px] md:min-h-[400px] fu fu-d2">
+      <img alt="Dark moody orange aesthetic" class="absolute inset-0 w-full h-full object-cover brightness-50 group-hover:scale-105 transition-transform duration-1000" style="transition-timing-function: var(--ease-heavy)" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn6x2207lEfOd00hYNF7jkL5UjhKxlJ6si2EFKsbr5_VvGaBJa-3qD3UXtitP0wSw0wSh6RC139VQDQuT42hWR0fNqibofkX-6NWHAdCAE-qOuo_tiSX0Sc81U_0DGws_ZCttnzLxYqDWFIj82podwFVTUWBYGD8sYGNsy2zzJQghrLlMtpprCTnAELUH5YAylFHz_L1L9ua8kZHXp0AQshNp-qGXY7iNFcS4Qyzso9bE4CJgQbpR7-3JKU9RiwI1vVvsrAIaw-Q"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-surface/90 to-transparent p-8 md:p-12 flex flex-col justify-center">
+        <h4 class="font-headline text-3xl md:text-4xl font-bold mb-4">THE SMOOTH FINISH.</h4>
+        <p class="text-on-surface-variant max-w-sm text-sm md:text-base" style="line-height: 1.6">No sharp edges. No acidic bite. Just the silkiness of Still Bold.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="py-32 md:py-40 bg-surface relative overflow-hidden" id="cta">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-primary-container/5 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="max-w-4xl mx-auto text-center relative z-10 px-6 md:px-8">
+    <h2 class="font-headline text-5xl sm:text-6xl md:text-8xl font-black mb-10 md:mb-12 tracking-tighter fu">
+      READY TO GO <span class="text-primary-container italic">STILL?</span>
+    </h2>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8 fu fu-d1">
+      <a class="group relative inline-flex items-center justify-center px-10 md:px-12 py-5 md:py-6 font-headline font-bold text-lg md:text-xl uppercase tracking-widest text-on-primary-fixed bg-primary-container rounded-full overflow-hidden transition-all duration-500 hover:scale-110" href="#" style="transition-timing-function: var(--ease-heavy)">
+        <span class="relative z-10">Get Your Case</span>
+        <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" style="transition-timing-function: var(--ease-heavy)"></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="w-full py-10 md:py-12 px-6 md:px-8" style="background: #0a0a0a">
+  <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 max-w-7xl mx-auto">
+    <div class="font-headline text-lg font-bold text-on-surface uppercase tracking-tighter">STILL BOLD</div>
+    <div class="flex flex-wrap justify-center gap-6 md:gap-8">
+      <a class="font-body text-xs tracking-widest uppercase opacity-40 text-on-surface/50 hover:text-primary-container transition-colors duration-300" href="#">Privacy</a>
+      <a class="font-body text-xs tracking-widest uppercase opacity-40 text-on-surface/50 hover:text-primary-container transition-colors duration-300" href="#">Terms</a>
+      <a class="font-body text-xs tracking-widest uppercase opacity-40 text-on-surface/50 hover:text-primary-container transition-colors duration-300" href="#">Shipping</a>
+      <a class="font-body text-xs tracking-widest uppercase opacity-40 text-on-surface/50 hover:text-primary-container transition-colors duration-300" href="#">Contact</a>
+    </div>
+    <div class="font-body text-xs tracking-widest uppercase opacity-60 text-primary-container">
+      &copy; 2026 STILL BOLD. DRINK RESPONSIBLY.
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== FLUID SCROLL INDICATOR ==================== -->
+<div class="fixed bottom-8 md:bottom-12 right-6 md:right-12 z-40 hidden lg:block" id="scrollIndicator">
+  <div class="w-12 h-24 bg-surface-container-highest rounded-full flex flex-col items-center justify-center space-y-3 backdrop-blur-md" style="border: 1px solid rgba(90,65,54,0.1)">
+    <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1; animation: fluidPulse 2.5s var(--ease-organic) infinite">expand_more</span>
+    <div class="w-1 h-8 bg-primary-container/20 rounded-full relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-full bg-primary-container rounded-full scroll-progress" id="scrollProgress" style="height: 0%"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+  // Scroll fade-up observer
+  const fuObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fuObserver.unobserve(entry.target);
       }
     });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-    // Close mobile menu on link click
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuBtn.classList.remove('open');
-        mobileMenu.style.display = 'none';
-      });
+  document.querySelectorAll('.fu').forEach(el => fuObserver.observe(el));
+
+  // Nav glassmorphism on scroll
+  const nav = document.getElementById('mainNav');
+  const scrollProgress = document.getElementById('scrollProgress');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    // Nav background
+    if (scrollY > 60) {
+      nav.style.background = 'rgba(10, 10, 10, 0.85)';
+      nav.style.backdropFilter = 'blur(24px) saturate(1.2)';
+      nav.style.webkitBackdropFilter = 'blur(24px) saturate(1.2)';
+      nav.style.boxShadow = '0 20px 50px rgba(255,107,0,0.06)';
+    } else {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+      nav.style.webkitBackdropFilter = 'none';
+      nav.style.boxShadow = 'none';
+    }
+
+    // Scroll progress indicator
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = Math.min((scrollY / docHeight) * 100, 100);
+    if (scrollProgress) scrollProgress.style.height = progress + '%';
+  }, { passive: true });
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('open');
+    const isOpen = menuBtn.classList.contains('open');
+    mobileMenu.style.display = isOpen ? 'flex' : 'none';
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuBtn.classList.remove('open');
+      mobileMenu.style.display = 'none';
     });
+  });
 
-    // Parallax on hero can — slow, heavy
-    const canContainer = document.getElementById('canContainer');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const heroHeight = document.getElementById('hero').offsetHeight;
-      if (scrollY < heroHeight) {
-        const offset = scrollY * 0.2;
-        canContainer.style.transform = `translateY(${offset}px)`;
-      }
-    }, { passive: true });
-  </script>
+  // Hero image parallax — slow, heavy
+  const heroImage = document.getElementById('heroImage');
+  const hero = document.getElementById('hero');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < hero.offsetHeight) {
+      heroImage.style.transform = `scale(1.1) rotate(2deg) translateY(${window.scrollY * 0.08}px)`;
+    }
+  }, { passive: true });
+</script>
 </body>
 </html>
